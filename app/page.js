@@ -174,17 +174,17 @@ export default function Home() {
 const featuredTeasers = [
   {
     title: "Plywood",
-    image: "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=600&q=80",
+    image: "/plywood.png",
     desc: "BWP Marine Ply, Alternate Hardwood core sheets, and high repetition Film Faced shuttering plywood."
   },
   {
     title: "Laminates",
-    image: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=600&q=80",
+    image: "/laminates.png",
     desc: "1.0mm decorative sheets in wood grain, solid color matte, gloss, and exterior HPL cladding."
   },
   {
     title: "Doors",
-    image: "https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=600&q=80",
+    image: "/doors.png",
     desc: "Seasoned pinewood core Flush Doors and elegant designer veneer finishes ready for installation."
   }
 ];

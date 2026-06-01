@@ -6,9 +6,9 @@ import { ArrowRight, ShieldCheck, Award, Clock, Truck } from "lucide-react";
 import Image from "next/image";
 
 const bgImages = [
-  "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1920&q=85", // Industrial warehouse
-  "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=1920&q=85", // Plywood stacks
-  "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1920&q=85", // Luxury wood veneers/laminates
+  "/warehouse.png", // Industrial warehouse
+  "/plywood.png", // Plywood stacks
+  "/laminates.png", // Luxury wood veneers/laminates
 ];
 
 export default function Hero() {
