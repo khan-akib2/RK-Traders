@@ -1,26 +1,114 @@
 @import "tailwindcss";
 
+@theme {
+  --color-primary: #8B6B3E;
+  --color-primary-hover: #755933;
+  --color-secondary: #A67C52;
+  --color-brand-dark: #2B2B2B;
+  --color-brand-dark-bg: #1F1F1F;
+  --color-brand-light: #F8F6F2;
+  --font-sans: var(--font-inter), system-ui, -apple-system, sans-serif;
+  --font-display: var(--font-outfit), system-ui, -apple-system, sans-serif;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #F8F6F2;
+  --foreground: #2B2B2B;
+  --primary: #8B6B3E;
+  --secondary: #A67C52;
+  --dark: #2B2B2B;
+  --light: #F8F6F2;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Custom premium industrial styling defaults */
+html, body {
+  background-color: #F8F6F2;
+  color: #2B2B2B;
+  font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+  scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Custom Industrial Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-outfit), system-ui, -apple-system, sans-serif;
+  letter-spacing: -0.02em;
+  font-weight: 700;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Scrollbar customization matching natural oak/bronze tones */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F8F6F2;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #A67C52;
+  border-radius: 0px; /* Sharp industrial styling */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #8B6B3E;
+}
+
+/* Lenis Scroll Settings */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* Wood Grain Subtle Accent Pattern */
+.wood-grain-overlay {
+  background-color: #2b2b2b;
+  background-image: radial-gradient(rgba(139, 107, 62, 0.15) 1px, transparent 0),
+                    radial-gradient(rgba(139, 107, 62, 0.15) 1px, transparent 0);
+  background-size: 8px 8px;
+  background-position: 0 0, 4px 4px;
+}
+
+/* Premium Industrial Borders */
+.industrial-border {
+  border: 1px solid rgba(139, 107, 62, 0.2);
+}
+
+.industrial-border-active {
+  border: 1px solid #8B6B3E;
+}
+
+/* Watermark styles */
+.watermark-text {
+  font-family: var(--font-outfit), sans-serif;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: rgba(139, 107, 62, 0.03);
+  user-select: none;
+  pointer-events: none;
+}
+
+/* Custom animations helper */
+.hover-gold-trigger:hover .hover-gold-target {
+  color: #8B6B3E;
+  transform: translateX(4px);
 }
