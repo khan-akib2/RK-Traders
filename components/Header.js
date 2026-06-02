@@ -9,6 +9,7 @@ import { Menu, X, Phone, ArrowRight, ChevronDown } from "lucide-react";
 const navLinks = [
   { path: "/", label: "Home" },
   { path: "/about", label: "About" },
+  { path: "/founder", label: "Founder" },
   { path: "/products", label: "Products", hasDropdown: true },
   { path: "/brands", label: "Brands" },
   { path: "/gallery", label: "Gallery" }

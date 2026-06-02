@@ -1,10 +1,13 @@
 "use client";
 
 import Image from "next/image";
+import { usePathname, useRouter } from "next/navigation";
 import { Phone, Mail, MapPin, ArrowUp, Compass } from "lucide-react";
 
 export default function Footer() {
   const directionsUrl = "https://maps.app.goo.gl/NnrnK8ukWUNq6oEv8";
+  const pathname = usePathname();
+  const router = useRouter();
 
   const handleScrollToTop = (e) => {
     e.preventDefault();
@@ -14,8 +17,20 @@ export default function Footer() {
     });
   };
 
-  const handleLinkClick = (e, id) => {
+  const handleLinkClick = (e, id, isPage = false) => {
     e.preventDefault();
+    if (isPage) {
+      if (id === "/" && pathname === "/") {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
+      } else {
+        router.push(id);
+      }
+      return;
+    }
+
     const el = document.getElementById(id);
     if (el) {
       const offset = 80;
@@ -28,6 +43,8 @@ export default function Footer() {
         top: offsetPosition,
         behavior: "smooth"
       });
+    } else {
+      router.push(`/#${id}`);
     }
   };
 
@@ -84,19 +101,20 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2 text-xs sm:text-sm text-zinc-400">
               {[
-                { id: "hero", label: "Home" },
-                { id: "about", label: "About Us" },
-                { id: "products", label: "Products" },
-                { id: "brands", label: "Brand Partners" },
-                { id: "why-choose-us", label: "Why Choose Us" },
-                { id: "gallery", label: "Photo Gallery" },
-                { id: "testimonials", label: "Testimonials" },
-                { id: "contact", label: "Inquiries" }
+                { id: "/", label: "Home", isPage: true },
+                { id: "/about", label: "About Us", isPage: true },
+                { id: "/founder", label: "Our Founder", isPage: true },
+                { id: "/products", label: "Products", isPage: true },
+                { id: "/brands", label: "Brand Partners", isPage: true },
+                { id: "why-choose-us", label: "Why Choose Us", isPage: false },
+                { id: "/gallery", label: "Photo Gallery", isPage: true },
+                { id: "testimonials", label: "Testimonials", isPage: false },
+                { id: "/contact", label: "Inquiries", isPage: true }
               ].map((link) => (
                 <li key={link.id}>
                   <a
-                    href={`#${link.id}`}
-                    onClick={(e) => handleLinkClick(e, link.id)}
+                    href={link.isPage ? link.id : `#${link.id}`}
+                    onClick={(e) => handleLinkClick(e, link.id, link.isPage)}
                     className="hover:text-white transition-colors block py-0.5"
                   >
                     {link.label}
@@ -113,16 +131,16 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2 text-xs sm:text-sm text-zinc-400">
               {[
-                { id: "products", label: "Commercial & Marine Plywood" },
-                { id: "products", label: "High-Pressure Laminates (HPL)" },
-                { id: "products", label: "Medium Density Fiberboard (MDF)" },
-                { id: "products", label: "Seasoned Timber Flush Doors" },
-                { id: "products", label: "Industrial Packaging Pallets" }
+                { id: "/products?category=Plywood", label: "Commercial & Marine Plywood", isPage: true },
+                { id: "/products?category=Laminates", label: "High-Pressure Laminates (HPL)", isPage: true },
+                { id: "/products?category=MDF Boards", label: "Medium Density Fiberboard (MDF)", isPage: true },
+                { id: "/products?category=Doors", label: "Seasoned Timber Flush Doors", isPage: true },
+                { id: "/products?category=Wooden Packaging Materials", label: "Industrial Packaging Pallets", isPage: true }
               ].map((prod, pIdx) => (
                 <li key={pIdx}>
                   <a
-                    href={`#${prod.id}`}
-                    onClick={(e) => handleLinkClick(e, prod.id)}
+                    href={prod.id}
+                    onClick={(e) => handleLinkClick(e, prod.id, prod.isPage)}
                     className="hover:text-white transition-colors block py-0.5"
                   >
                     {prod.label}

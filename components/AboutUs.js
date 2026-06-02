@@ -29,6 +29,7 @@ export default function AboutUs() {
                 src="/about-image.png"
                 alt="RK Traders loading premium plywood sheets"
                 fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 576px"
                 className="object-cover transition-transform duration-700 hover:scale-105"
               />
               <div className="absolute inset-0 bg-[#2B2B2B]/20" />

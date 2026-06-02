@@ -75,6 +75,7 @@ export default function Hero() {
             src="/logo.png"
             alt="RK Traders Watermark"
             fill
+            sizes="(max-width: 768px) 100vw, 600px"
             className="object-contain filter invert opacity-60"
             priority
           />
