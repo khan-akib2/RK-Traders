@@ -1,26 +1,9 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { ArrowRight, ShieldCheck, Award, Clock, Truck } from "lucide-react";
-import Image from "next/image";
-
-const bgImages = [
-  "/warehouse.png", // Industrial warehouse
-  "/plywood.png", // Plywood stacks
-  "/laminates.png", // Luxury wood veneers/laminates
-];
 
 export default function Hero() {
-  const [currentBg, setCurrentBg] = useState(0);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentBg((prev) => (prev + 1) % bgImages.length);
-    }, 6000);
-    return () => clearInterval(timer);
-  }, []);
-
   const handleScrollTo = (id) => {
     const el = document.getElementById(id);
     if (el) {
@@ -42,44 +25,21 @@ export default function Hero() {
       id="hero"
       className="relative min-h-screen flex items-center justify-center bg-[#2B2B2B] overflow-hidden pt-20"
     >
-      {/* Background Slider */}
+      {/* Background Video */}
       <div className="absolute inset-0 z-0">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={currentBg}
-            initial={{ opacity: 0, scale: 1.05 }}
-            animate={{ opacity: 0.35, scale: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 1.5, ease: "easeInOut" }}
-            className="absolute inset-0 w-full h-full"
-            style={{
-              backgroundImage: `url(${bgImages[currentBg]})`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-            }}
-          />
-        </AnimatePresence>
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          poster="/images/hero-warehouse.jpg"
+          className="absolute inset-0 w-full h-full object-cover opacity-35"
+        >
+          <source src="/images/hero-video.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
         {/* Dark Vignette Overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-[#2B2B2B] via-[#2B2B2B]/60 to-[#2B2B2B]/90 z-10" />
-      </div>
-
-      {/* Watermark Logo Effect */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10 overflow-hidden select-none">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 0.03, scale: 1 }}
-          transition={{ duration: 2 }}
-          className="relative w-[600px] h-[600px] max-w-[90vw] aspect-square"
-        >
-          <Image
-            src="/logo.png"
-            alt="RK Traders Watermark"
-            fill
-            sizes="(max-width: 768px) 100vw, 600px"
-            className="object-contain filter invert opacity-60"
-            priority
-          />
-        </motion.div>
       </div>
 
       {/* Hero Content */}

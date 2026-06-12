@@ -31,7 +31,7 @@ export default function Home() {
                 <div className="grid lg:grid-cols-12 gap-12 items-center">
                   <div className="lg:col-span-5 h-[360px] relative border border-[#8B6B3E]/20 bg-zinc-300">
                     <img
-                      src="/about-image.png"
+                      src="/images/about-warehouse-staff.jpg"
                       alt="RK Traders loading premium plywood sheets"
                       className="w-full h-full object-cover"
                     />
@@ -174,17 +174,17 @@ export default function Home() {
 const featuredTeasers = [
   {
     title: "Plywood",
-    image: "/plywood.png",
+    image: "/images/product-plywood.jpg",
     desc: "BWP Marine Ply, Alternate Hardwood core sheets, and high repetition Film Faced shuttering plywood."
   },
   {
     title: "Laminates",
-    image: "/laminates.png",
+    image: "/images/product-laminates.jpg",
     desc: "1.0mm decorative sheets in wood grain, solid color matte, gloss, and exterior HPL cladding."
   },
   {
     title: "Doors",
-    image: "/doors.png",
+    image: "/images/product-doors.jpg",
     desc: "Seasoned pinewood core Flush Doors and elegant designer veneer finishes ready for installation."
   }
 ];

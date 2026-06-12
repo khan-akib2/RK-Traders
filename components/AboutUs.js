@@ -26,7 +26,7 @@ export default function AboutUs() {
             {/* Main Warehouse Image */}
             <div className="relative h-[480px] w-full overflow-hidden border border-[#8B6B3E]/20 bg-zinc-200">
               <Image
-                src="/about-image.png"
+                src="/images/about-warehouse-staff.jpg"
                 alt="RK Traders loading premium plywood sheets"
                 fill
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 576px"
